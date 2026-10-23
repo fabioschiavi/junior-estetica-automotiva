@@ -1,0 +1,9 @@
+capturas/
+docs/
+.playwright-mcp/
+.claude/
+img/ig/
+ig-public.json
+_v1/
+design-system/
+_v2/

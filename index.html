@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Junior Estética Automotiva — Rolândia, PR</title>
+<meta name="description" content="Polimento técnico, vitrificação, polimento de vidros, faróis e higienização interna para carro e moto em Rolândia, PR. Agendamento pelo WhatsApp.">
+<meta name="theme-color" content="#0E0F11">
+<meta property="og:title" content="Junior Estética Automotiva">
+<meta property="og:description" content="Seu carro sai daqui finalizado. Carro e moto em Rolândia, PR.">
+<meta property="og:image" content="img/fotos/ranger-0km.webp">
+<!--
+  JUNIOR ESTÉTICA AUTOMOTIVA — prévia "Bandeirada".
+  O piso xadrez do box vira bandeira de chegada; o "✅ finalizado" das legendas é a bandeirada.
+  Mecânicas estudadas em getlayers.ai (Kimi, Ridgeline, Held-mint, Halden), Kokonut UI (receipt printer),
+  Skiper UI (card swipe, dynamic island) e Magic UI (number ticker, velocity marquee); código próprio.
+  Fotos: Instagram público @junior_esteticaautomotiva16. Sem imagem gerada por IA.
+-->
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/fotos/ranger-0km.webp">
+<link rel="stylesheet" href="css/style.css?v=6">
+<script>history.scrollRestoration="manual";document.documentElement.classList.add('js');</script>
+</head>
+<body class="carregando">
+<canvas class="piso-fundo" id="pisoFundo" aria-hidden="true"></canvas>
+
+<!-- VÉU: a marca enche como um medidor; sai desmanchando em xadrez -->
+<div class="veu" id="veu" role="status" aria-label="Carregando Junior Estética Automotiva">
+  <canvas class="veu-xadrez" id="veuXadrez" aria-hidden="true"></canvas>
+  <div class="veu-centro" id="veuCentro">
+    <div class="veu-marca" aria-hidden="true"><span class="veu-fundo">JUNIOR</span><span class="veu-cheio" id="veuCheio">JUNIOR</span></div>
+    <p class="veu-sub">Estética Automotiva, Rolândia (PR)</p>
+  </div>
+  <div class="veu-medidor" aria-hidden="true"><i id="veuMedidor"></i></div>
+</div>
+
+<a class="pular" href="#servicos">Pular para os serviços</a>
+
+<header class="nav" id="nav">
+  <a class="marca" href="#topo" aria-label="Junior Estética Automotiva, início">
+    <img src="img/perfil.webp" alt="" width="40" height="40">
+    <span class="marca-nome">Junior <small>Estética Automotiva</small></span>
+  </a>
+  <nav class="nav-links" aria-label="Seções">
+    <a href="#volta">O box</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#motos">Motos</a>
+    <a href="#finalizados">Finalizados</a>
+    <a href="#curso">Curso</a>
+  </nav>
+  <a class="btn btn-zap btn-sm" href="https://wa.me/5543998134460?text=Oi%2C%20Junior!%20Vi%20o%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener">Agendar</a>
+</header>
+
+<main>
+
+  <!-- pilha sticky (Kimi): o hero fica preso e a volta no box passa por cima -->
+  <div class="pilha">
+
+    <!-- 1 · HERO: o piso xadrez queima com uma frente vermelha e revela o carro finalizado -->
+    <section class="hero camada" id="topo" data-camada>
+      <div class="camada-dentro">
+        <div class="hero-quadro" id="heroQuadro">
+          <img class="hero-foto" id="heroFoto" src="img/fotos/ranger-0km.webp" width="1440" height="1920" alt="Ford Ranger branca 0 km no box do Junior, com as luzes do teto refletidas no capô" fetchpriority="high">
+          <canvas class="hero-cena" id="heroCena" aria-hidden="true"></canvas>
+          <div class="hero-xadrez" aria-hidden="true"></div>
+          <ul class="chamadas" id="chamadas" aria-label="O que foi feito nesta Ranger">
+            <li data-x="0.66" data-y="0.5"><span>Proteção cerâmica de 3 anos</span></li>
+            <li data-x="0.3" data-y="0.79"><span>PPF básico</span></li>
+          </ul>
+          <div class="placa hero-placa" aria-hidden="true">
+            <svg viewBox="0 0 277 78" preserveAspectRatio="none"><path d="M0.5 0.5H276.5V69L268 77.5H0.5Z"/><line x1="83" y1="0" x2="83" y2="78"/></svg>
+            <div class="placa-selo"><svg class="ico-check" ><use href="#i-check"/></svg><b>Último</b></div>
+            <div class="placa-texto"><b>Ranger 0 km</b><span>finalizada no box</span></div>
+          </div>
+        </div>
+        <div class="hero-barra" aria-hidden="true"><span>Rolândia, PR</span><span>Carro e moto</span><span class="hero-rola">Role para dar a volta</span></div>
+        <div class="hero-texto">
+          <h1 class="titulo-hero" data-palavras>Seu carro sai daqui <em>finalizado.</em></h1>
+          <p class="lede" data-sobe>Polimento técnico, vitrificação, polimento de vidros e higienização. Carro e moto, em Rolândia (PR).</p>
+          <div class="hero-acoes" data-sobe>
+            <a class="btn btn-zap" href="https://wa.me/5543998134460?text=Oi%2C%20Junior!%20Vi%20o%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg>Agendar pelo WhatsApp</a>
+            <a class="btn btn-linha" href="#servicos">Montar minha ordem</a>
+          </div>
+        </div>
+      </div>
+      <div class="camada-sombra" aria-hidden="true"></div>
+    </section>
+
+    <!-- 2 · A VOLTA NO BOX: o circuito dá uma volta e acende cada etapa (Kimi) -->
+    <section class="volta camada" id="volta" data-camada aria-labelledby="volta-t">
+      <canvas class="costura" data-costura="claro" aria-hidden="true"></canvas>
+      <div class="camada-dentro wrap volta-grid">
+        <div class="volta-texto">
+          <h2 id="volta-t" data-palavras>Uma volta <em>no box.</em></h2>
+          <p data-sobe>Todo carro passa pelas mesmas quatro curvas antes da bandeirada. É o que aparece nos reels do Junior, todo dia.</p>
+        </div>
+        <div class="pista-palco" id="pistaPalco">
+          <svg class="pista-svg" viewBox="0 0 400 560" aria-hidden="true">
+            <defs>
+              <pattern id="pontos" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="1.1" fill="#3a3f44"/></pattern>
+              <radialGradient id="fadePontos"><stop offset=".45" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+              <mask id="mascaraPontos"><rect width="400" height="560" fill="url(#fadePontos)"/></mask>
+              <filter id="brilho" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+            </defs>
+            <rect width="400" height="560" fill="url(#pontos)" mask="url(#mascaraPontos)"/>
+            <g class="eixos"><line x1="0" y1="275" x2="400" y2="275"/><line x1="200" y1="0" x2="200" y2="560"/></g>
+            <path class="pista-leito" id="pistaLeito" d="M95 470 L300 470 C352 470 366 428 338 398 L254 304 C232 280 240 248 272 238 L322 222 C360 210 364 160 330 138 L232 80 C200 61 158 70 148 102 L120 196 C110 228 82 240 62 258 C30 288 38 330 58 352 L58 428 C58 455 70 470 95 470 Z"/>
+            <path class="pista-volta" id="pistaVolta" d="M95 470 L300 470 C352 470 366 428 338 398 L254 304 C232 280 240 248 272 238 L322 222 C360 210 364 160 330 138 L232 80 C200 61 158 70 148 102 L120 196 C110 228 82 240 62 258 C30 288 38 330 58 352 L58 428 C58 455 70 470 95 470 Z"/>
+            <g class="bandeira" transform="translate(95 470)"><rect x="-7" y="-14" width="14" height="28" fill="#fff"/><path d="M-7-14h7v7h-7zM0-7h7v7H0zM-7 0h7v7h-7zM0 7h7v7H0z" fill="#111315"/></g>
+            <circle class="cabeca-brilho" id="cabecaBrilho" r="12" filter="url(#brilho)"/>
+            <circle class="cabeca" id="cabeca" r="4.5"/>
+            <g id="marcos"></g>
+          </svg>
+        </div>
+        <ol class="etapas" id="etapas">
+          <li class="etapa"><span class="etapa-n">1</span><div><h3>Lavação detalhada</h3><p>Espuma, pincel e calma em cada friso, roda e emblema.</p></div><img src="img/fotos/espuma-480.webp" width="480" height="852" loading="lazy" decoding="async" alt="Mão com luva laranja espalhando espuma no capô"></li>
+          <li class="etapa"><span class="etapa-n">2</span><div><h3>Descontaminação</h3><p>Sai o que está grudado na pintura e que a lavagem não tira.</p></div><img src="img/fotos/vidro-polimento-480.webp" width="480" height="852" loading="lazy" decoding="async" alt="Politriz trabalhando no vidro"></li>
+          <li class="etapa"><span class="etapa-n">3</span><div><h3>Polimento técnico</h3><p>Máquina e boina até a pintura refletir as luzes do teto.</p></div><img src="img/fotos/polimento-boina-480.webp" width="480" height="852" loading="lazy" decoding="async" alt="Politriz com boina laranja na pintura escura"></li>
+          <li class="etapa"><span class="etapa-n">4</span><div><h3>Proteção</h3><p>Vitrificação ou selante para o brilho durar meses.</p></div><img src="img/fotos/vitrificacao-480.webp" width="480" height="852" loading="lazy" decoding="async" alt="Mão com luva espalhando vitrificação na pintura branca"></li>
+        </ol>
+        <p class="bandeirada" id="bandeirada"><svg class="ico-check" aria-hidden="true"><use href="#i-check"/></svg>Finalizado.</p>
+      </div>
+      <div class="camada-sombra" aria-hidden="true"></div>
+    </section>
+  </div>
+
+  <!-- 3 · SERVIÇOS: acordeão com checklist (Ridgeline) e faixa que corre (Halden); o marcado imprime a ordem (Kokonut) -->
+  <section class="servicos" id="servicos" aria-labelledby="servicos-t">
+        <div class="wrap servicos-grid">
+      <div class="servicos-esq">
+        <h2 id="servicos-t" data-palavras>Monte a sua <em>ordem de serviço.</em></h2>
+        <p class="servicos-intro" data-sobe>É assim que o Junior fecha cada trabalho no Instagram: com a lista do que foi feito. Marque o que o seu precisa e mande pelo WhatsApp para receber valor e horário.</p>
+
+        <form class="pedido" id="pedido" onsubmit="return false">
+          <fieldset class="veiculo">
+            <legend>Qual é o veículo?</legend>
+            <div class="chips" role="radiogroup" aria-label="Tipo de veículo">
+              <label class="chip"><input type="radio" name="tipo" value="Carro" checked><span>Carro</span></label>
+              <label class="chip"><input type="radio" name="tipo" value="Moto"><span>Moto</span></label>
+            </div>
+            <label class="campo"><span>Modelo e ano</span><input type="text" name="modelo" id="modelo" placeholder="Ex.: Onix 2020" autocomplete="off" maxlength="40"></label>
+          </fieldset>
+
+          <div class="grupos" id="grupos">
+            <span class="faixa" id="faixa" aria-hidden="true"></span>
+
+            <div class="grupo aberto">
+              <button class="grupo-cab" type="button" aria-expanded="true" aria-controls="g1"><img src="img/fotos/polimento-maquina-480.webp" width="480" height="852" alt="" loading="lazy" decoding="async"><span class="grupo-nome">Pintura</span><span class="grupo-conta" data-conta>0 de 6</span><span class="mais" aria-hidden="true"></span></button>
+              <div class="grupo-corpo" id="g1"><div>
+                <label class="item"><input type="checkbox" name="s" value="Polimento técnico"><span class="caixa" aria-hidden="true"></span><span><b>Polimento técnico</b><small>Corrige riscos finos e devolve brilho e profundidade.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Polimento comercial"><span class="caixa" aria-hidden="true"></span><span><b>Polimento comercial</b><small>Brilho renovado num serviço mais rápido.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Descontaminação de pintura"><span class="caixa" aria-hidden="true"></span><span><b>Descontaminação de pintura</b><small>Tira a sujeira grudada que a lavagem não tira.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Vitrificação de pintura"><span class="caixa" aria-hidden="true"></span><span><b>Vitrificação de pintura</b><small>Proteção cerâmica de até 3 anos.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Proteção de pintura"><span class="caixa" aria-hidden="true"></span><span><b>Proteção de pintura</b><small>Selante ou proteção cerâmica de 6 a 12 meses.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="PPF"><span class="caixa" aria-hidden="true"></span><span><b>PPF</b><small>Película nas quinas, conchas e soleiras.</small></span></label>
+              </div></div>
+            </div>
+
+            <div class="grupo">
+              <button class="grupo-cab" type="button" aria-expanded="false" aria-controls="g2"><img src="img/fotos/farol-luva-480.webp" width="480" height="853" alt="" loading="lazy" decoding="async"><span class="grupo-nome">Vidros e faróis</span><span class="grupo-conta" data-conta>0 de 4</span><span class="mais" aria-hidden="true"></span></button>
+              <div class="grupo-corpo" id="g2"><div>
+                <label class="item"><input type="checkbox" name="s" value="Polimento de vidros"><span class="caixa" aria-hidden="true"></span><span><b>Polimento de vidros</b><small>Tira manchas e marcas do para-brisa.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Cristalização de vidros"><span class="caixa" aria-hidden="true"></span><span><b>Cristalização de vidros</b><small>O vidro passa a repelir a água da chuva.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Polimento de faróis"><span class="caixa" aria-hidden="true"></span><span><b>Polimento de faróis</b><small>Tira o amarelado e devolve a transparência.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Vitrificação de faróis"><span class="caixa" aria-hidden="true"></span><span><b>Vitrificação de faróis</b><small>Protege o farol depois do polimento.</small></span></label>
+              </div></div>
+            </div>
+
+            <div class="grupo">
+              <button class="grupo-cab" type="button" aria-expanded="false" aria-controls="g3"><img src="img/fotos/banco-tecido-480.webp" width="480" height="853" alt="" loading="lazy" decoding="async"><span class="grupo-nome">Interior</span><span class="grupo-conta" data-conta>0 de 5</span><span class="mais" aria-hidden="true"></span></button>
+              <div class="grupo-corpo" id="g3"><div>
+                <label class="item"><input type="checkbox" name="s" value="Interna parcial"><span class="caixa" aria-hidden="true"></span><span><b>Interna parcial</b><small>Limpeza interna para o dia a dia.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Interna completa"><span class="caixa" aria-hidden="true"></span><span><b>Interna completa</b><small>Higienização completa do interior.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Higienização dos bancos"><span class="caixa" aria-hidden="true"></span><span><b>Higienização dos bancos</b><small>Tira do tecido a sujeira que o aspirador não pega.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Limpeza e hidratação de bancos em couro"><span class="caixa" aria-hidden="true"></span><span><b>Bancos de couro</b><small>Limpeza e hidratação para o couro não ressecar.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Oxi-sanitização"><span class="caixa" aria-hidden="true"></span><span><b>Oxi-sanitização</b><small>Tira o cheiro ruim do interior e do ar-condicionado.</small></span></label>
+              </div></div>
+            </div>
+
+            <div class="grupo">
+              <button class="grupo-cab" type="button" aria-expanded="false" aria-controls="g4"><img src="img/fotos/retrovisor-480.webp" width="480" height="852" alt="" loading="lazy" decoding="async"><span class="grupo-nome">Lavação e motor</span><span class="grupo-conta" data-conta>0 de 4</span><span class="mais" aria-hidden="true"></span></button>
+              <div class="grupo-corpo" id="g4"><div>
+                <label class="item"><input type="checkbox" name="s" value="Lavação detalhada"><span class="caixa" aria-hidden="true"></span><span><b>Lavação detalhada</b><small>Lavagem feita com calma, detalhe por detalhe.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Lavação e proteção do motor"><span class="caixa" aria-hidden="true"></span><span><b>Lavação do motor</b><small>Limpeza do cofre e verniz de proteção no motor.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Revitalização dos plásticos"><span class="caixa" aria-hidden="true"></span><span><b>Revitalização dos plásticos</b><small>Os plásticos de fora voltam a ficar pretos.</small></span></label>
+                <label class="item"><input type="checkbox" name="s" value="Vitrificação dos plásticos"><span class="caixa" aria-hidden="true"></span><span><b>Vitrificação dos plásticos</b><small>Protege os plásticos para a cor durar mais.</small></span></label>
+              </div></div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- a ordem de serviço: imprime uma linha por serviço marcado (Kokonut Receipt Printer) -->
+      <aside class="ordem" id="ordem" aria-label="Sua ordem de serviço">
+        <div class="impressora"><span>Junior Estética</span><span id="ordemStatus">Esperando</span></div>
+        <div class="papel-janela">
+          <div class="papel" id="papel">
+            <p class="papel-topo"><b>Ordem de serviço</b><span id="ordemVeiculo">Carro</span></p>
+            <ul class="papel-linhas" id="papelLinhas"></ul>
+            <p class="papel-vazio" id="papelVazio">Marque um serviço ao lado e ele sai impresso aqui.</p>
+            <p class="papel-rodape"><span>Valor e horário</span><span>pelo WhatsApp</span></p>
+          </div>
+        </div>
+        <a class="btn btn-zap ordem-enviar" id="enviar" href="https://wa.me/5543998134460" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg><span id="enviarTxt">Pedir orçamento no WhatsApp</span></a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 4 · NÚMEROS em odômetro (Ridgeline) + faixa que acelera com o scroll (Magic UI) -->
+  <section class="painel" aria-label="O Junior em números">
+    <div class="wrap painel-grid">
+      <div class="odo"><span class="odo-num" data-odo="981">981</span><span class="odo-rot">publicações no Instagram</span></div>
+      <div class="odo"><span class="odo-num" data-odo="4937" data-milhar>4.937</span><span class="odo-rot">seguidores acompanhando</span></div>
+      <div class="odo"><span class="odo-num" data-odo="3">3</span><span class="odo-rot">anos de proteção na vitrificação</span></div>
+    </div>
+    <div class="faixa-vel" aria-hidden="true">
+      <div class="faixa-trilho" id="faixaTrilho">
+        <span>Polimento técnico</span><span>Vitrificação</span><span>Polimento de vidros</span><span>Faróis</span><span>Higienização</span><span>PPF</span><span>Moto</span>
+        <span>Polimento técnico</span><span>Vitrificação</span><span>Polimento de vidros</span><span>Faróis</span><span>Higienização</span><span>PPF</span><span>Moto</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · MOTOS: pilha de cartas que vai para o fundo no arraste (Skiper card swipe) -->
+  <section class="motos" id="motos" aria-labelledby="motos-t">
+    <div class="wrap motos-grid">
+      <div class="motos-texto">
+        <h2 id="motos-t" data-palavras>Moto também <em>entra no box.</em></h2>
+        <blockquote data-sobe>“Moto nova merece proteção de verdade.”</blockquote>
+        <ul class="motos-fatos" data-sobe>
+          <li><svg class="ico-check" aria-hidden="true"><use href="#i-check"/></svg>Vitrificação full de até 3 anos</li>
+          <li><svg class="ico-check" aria-hidden="true"><use href="#i-check"/></svg>PPF no painel</li>
+          <li><svg class="ico-check" aria-hidden="true"><use href="#i-check"/></svg>Da Titan 160 à Tiger 900</li>
+        </ul>
+        <a class="btn btn-zap" data-sobe href="https://wa.me/5543998134460?text=Oi%2C%20Junior!%20Quero%20agendar%20a%20vitrifica%C3%A7%C3%A3o%20da%20minha%20moto.%20Modelo%3A%20" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg>Agendar para a minha moto</a>
+      </div>
+      <div class="baralho-area">
+        <ul class="baralho" id="baralho" aria-label="Motos finalizadas no box">
+          <li class="moto"><img src="img/fotos/z900-480.webp" srcset="img/fotos/z900-480.webp 480w, img/fotos/z900.webp 1215w" sizes="(min-width: 900px) 360px, 72vw" width="1215" height="2160" alt="Kawasaki Z900 verde no piso xadrez" draggable="false"><span>Z900</span></li>
+          <li class="moto"><img src="img/fotos/twister-2027-480.webp" srcset="img/fotos/twister-2027-480.webp 480w, img/fotos/twister-2027.webp 1440w" sizes="(min-width: 900px) 360px, 72vw" width="1440" height="1920" alt="Honda CB Twister 2027 azul e vermelha" draggable="false" loading="lazy"><span>CB Twister 2027</span></li>
+          <li class="moto"><img src="img/fotos/hornet-480.webp" srcset="img/fotos/hornet-480.webp 480w, img/fotos/hornet.webp 1215w" sizes="(min-width: 900px) 360px, 72vw" width="1215" height="2160" alt="Honda Hornet 0 km com o farol aceso" draggable="false" loading="lazy"><span>Hornet 0 km</span></li>
+          <li class="moto"><img src="img/fotos/gs-800-480.webp" srcset="img/fotos/gs-800-480.webp 480w, img/fotos/gs-800.webp 1440w" sizes="(min-width: 900px) 360px, 72vw" width="1440" height="1920" alt="BMW GS 800 no cavalete" draggable="false" loading="lazy"><span>GS 800</span></li>
+          <li class="moto"><img src="img/fotos/tiger-900-480.webp" srcset="img/fotos/tiger-900-480.webp 480w, img/fotos/tiger-900.webp 1440w" sizes="(min-width: 900px) 360px, 72vw" width="1440" height="1920" alt="Painel e tanque da Triumph Tiger 900 branca" draggable="false" loading="lazy"><span>Tiger 900</span></li>
+          <li class="moto"><img src="img/fotos/harley-480.webp" srcset="img/fotos/harley-480.webp 480w, img/fotos/harley.webp 1440w" sizes="(min-width: 900px) 360px, 72vw" width="1440" height="1920" alt="Harley-Davidson azul com carenagem" draggable="false" loading="lazy"><span>Harley-Davidson</span></li>
+          <li class="moto"><img src="img/fotos/titan-160-480.webp" srcset="img/fotos/titan-160-480.webp 480w, img/fotos/titan-160.webp 1440w" sizes="(min-width: 900px) 360px, 72vw" width="1440" height="1920" alt="Honda Titan 160 vermelha" draggable="false" loading="lazy"><span>Titan 160</span></li>
+          <li class="moto"><img src="img/fotos/esportiva-480.webp" srcset="img/fotos/esportiva-480.webp 480w, img/fotos/esportiva.webp 1440w" sizes="(min-width: 900px) 360px, 72vw" width="1440" height="1920" alt="Moto esportiva vermelha e preta" draggable="false" loading="lazy"><span>Esportiva</span></li>
+        </ul>
+        <div class="baralho-ctrl">
+          <button class="redondo" type="button" id="motoAnt" aria-label="Moto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <p class="baralho-info" aria-live="polite"><b id="motoNome">Z900</b><span id="motoConta">1 de 8</span></p>
+          <button class="redondo" type="button" id="motoProx" aria-label="Próxima moto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+        <p class="baralho-dica">Arraste a carta para o lado</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · FINALIZADOS: cartas com carimbo (Held-mint); toque vira e mostra o checklist da legenda -->
+  <section class="finalizados" id="finalizados" aria-labelledby="fin-t">
+    <div class="wrap">
+      <div class="fin-topo">
+        <h2 id="fin-t" data-palavras>Todos <em>finalizados.</em></h2>
+        <p data-sobe>Toque na carta para ver o que foi feito em cada um, do jeito que está na legenda.</p>
+      </div>
+      <ul class="cartas" id="cartas">
+        <li><button class="carta" type="button" aria-pressed="false"><span class="frente"><img src="img/fotos/kicks-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="Nissan Kicks prata finalizado no box"><span class="carimbo" aria-hidden="true">✓ finalizado</span><span class="nome">Kicks</span><span class="virar" aria-hidden="true"></span></span><span class="verso"><b>Kicks finalizado</b><span>Descontaminação</span><span>Polimento técnico</span><span>Selante sintético</span><span>Higienização interna</span><span>Hidratação do couro</span></span></button></li>
+        <li><button class="carta" type="button" aria-pressed="false"><span class="frente"><img src="img/fotos/onix-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="Chevrolet Onix branco finalizado"><span class="carimbo" aria-hidden="true">✓ finalizado</span><span class="nome">Onix</span><span class="virar" aria-hidden="true"></span></span><span class="verso"><b>Onix finalizado</b><span>Polimento técnico</span><span>Cerâmica de 12 meses</span><span>Higienização completa</span><span>Proteção dos vidros</span><span>Proteção dos plásticos</span></span></button></li>
+        <li><button class="carta" type="button" aria-pressed="false"><span class="frente"><img src="img/fotos/peugeot-3008-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="Peugeot 3008 prata finalizado"><span class="carimbo" aria-hidden="true">✓ finalizado</span><span class="nome">Peugeot 3008</span><span class="virar" aria-hidden="true"></span></span><span class="verso"><b>3008 finalizado</b><span>Polimento técnico</span><span>Vitrificação de 3 anos</span><span>Plásticos e vidros vitrificados</span><span>Higienização interna</span><span>Motor lavado e protegido</span></span></button></li>
+        <li><button class="carta" type="button" aria-pressed="false"><span class="frente"><img src="img/fotos/twister-0km-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="Honda Twister 0 km azul finalizada"><span class="carimbo" aria-hidden="true">✓ finalizado</span><span class="nome">Twister 0 km</span><span class="virar" aria-hidden="true"></span></span><span class="verso"><b>Twister finalizada</b><span>Pacote de vitrificação full</span><span>Proteção de até 3 anos</span></span></button></li>
+        <li><button class="carta" type="button" aria-pressed="false"><span class="frente"><img src="img/fotos/nivus-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="Volkswagen Nivus branco finalizado"><span class="carimbo" aria-hidden="true">✓ finalizado</span><span class="nome">Nivus</span><span class="virar" aria-hidden="true"></span></span><span class="verso"><b>Nivus finalizado</b><span>Descontaminação</span><span>Polimento técnico</span><span>Vitrificação de pintura</span><span>Plásticos vitrificados</span><span>Cristalização dos vidros</span></span></button></li>
+        <li><button class="carta" type="button" aria-pressed="false"><span class="frente"><img src="img/fotos/astra-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="Traseira do Chevrolet Astra prata finalizado"><span class="carimbo" aria-hidden="true">✓ finalizado</span><span class="nome">Astra</span><span class="virar" aria-hidden="true"></span></span><span class="verso"><b>Astra finalizado</b><span>Polimento técnico</span><span>Para-brisa polido</span><span>Proteção de 12 meses</span><span>Interna completa</span><span>Oxi-sanitização</span></span></button></li>
+        <li><button class="carta" type="button" aria-pressed="false"><span class="frente"><img src="img/fotos/hb20-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="Farol e capô do Hyundai HB20 prata finalizado"><span class="carimbo" aria-hidden="true">✓ finalizado</span><span class="nome">HB20</span><span class="virar" aria-hidden="true"></span></span><span class="verso"><b>HB20 finalizado</b><span>Polimento comercial</span><span>Faróis polidos</span><span>Faróis vitrificados</span><span>Interna parcial</span><span>Plásticos revitalizados</span></span></button></li>
+        <li><button class="carta" type="button" aria-pressed="false"><span class="frente"><img src="img/fotos/tiger-900-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="Triumph Tiger 900 branca finalizada"><span class="carimbo" aria-hidden="true">✓ finalizado</span><span class="nome">Tiger 900</span><span class="virar" aria-hidden="true"></span></span><span class="verso"><b>Tiger 900 finalizada</b><span>Vitrificação full</span><span>PPF no painel</span></span></button></li>
+        <li><button class="carta" type="button" aria-pressed="false"><span class="frente"><img src="img/fotos/peugeot-2008-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="Peugeot 2008 marrom finalizado"><span class="carimbo" aria-hidden="true">✓ finalizado</span><span class="nome">Peugeot 2008</span><span class="virar" aria-hidden="true"></span></span><span class="verso"><b>2008 finalizado</b><span>Motor lavado e protegido</span><span>Polimento técnico</span><span>Proteção de 12 meses</span><span>Interna completa</span><span>Bancos higienizados</span></span></button></li>
+        <li><button class="carta" type="button" aria-pressed="false"><span class="frente"><img src="img/fotos/cruze-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="Chevrolet Cruze branco finalizado"><span class="carimbo" aria-hidden="true">✓ finalizado</span><span class="nome">Cruze</span><span class="virar" aria-hidden="true"></span></span><span class="verso"><b>Cruze finalizado</b><span>Polimento técnico</span><span>Proteção de 12 meses</span><span>Vidros polidos</span><span>Vidros vitrificados</span><span>Interna completa</span></span></button></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7 · NÓS DOIS: o texto do post deles se escreve no scroll, num bloco cor do piso (Halden) -->
+  <section class="nos" aria-labelledby="nos-t">
+    <div class="wrap nos-grid">
+      <h2 id="nos-t" class="nos-titulo">Nós <em>dois.</em></h2>
+      <blockquote class="nos-citacao">
+        <p id="nosTexto">Por trás de cada carro bem cuidado, existe dedicação, amor pelo que fazemos e uma parceria que faz tudo acontecer. Nós dois. Nosso sonho. Nosso trabalho. Nossa essência.</p>
+        <footer>Junior Estética Automotiva, no Instagram</footer>
+      </blockquote>
+      <figure class="nos-fotos" aria-label="Mãos no trabalho">
+        <img src="img/fotos/farol-luva-480.webp" width="480" height="853" loading="lazy" decoding="async" alt="Mão com luva laranja polindo um farol">
+        <img src="img/fotos/luva-rosa-480.webp" width="480" height="852" loading="lazy" decoding="async" alt="Mão com luva rosa limpando o interior">
+      </figure>
+    </div>
+  </section>
+
+  <!-- 8 · CURSO: placa de canto escalonado e trilho de formação (Kimi) -->
+  <section class="curso" id="curso" aria-labelledby="curso-t">
+    <div class="wrap curso-grid">
+      <figure class="curso-foto">
+        <img src="img/fotos/curso-pincas-480.webp" srcset="img/fotos/curso-pincas-480.webp 480w, img/fotos/curso-pincas.webp 720w" sizes="(min-width: 900px) 420px, 92vw" width="720" height="1280" loading="lazy" decoding="async" alt="Junior trabalhando na roda de um carro suspenso no elevador durante o curso">
+        <figcaption>Turma de 2</figcaption>
+      </figure>
+      <div class="curso-texto">
+        <h2 id="curso-t" data-palavras>Curso de pinças <em>de freio.</em></h2>
+        <p data-sobe>Personalização de pinças de freio do começo ao fim, com o carro no elevador e a mão na massa.</p>
+        <ul class="certificado" data-sobe>
+          <li><svg class="ico-check" aria-hidden="true"><use href="#i-check"/></svg><span><b>Turma de 2 alunos</b> para dar atenção a cada um</span></li>
+          <li><svg class="ico-check" aria-hidden="true"><use href="#i-check"/></svg><span><b>Tudo na prática</b>, em carro de verdade</span></li>
+          <li><svg class="ico-check" aria-hidden="true"><use href="#i-check"/></svg><span><b>Certificado</b> no fim do curso</span></li>
+        </ul>
+        <div class="trilho" id="trilho">
+          <p class="trilho-tit">O Junior também segue estudando</p>
+          <ol>
+            <li><span class="marco-q" aria-hidden="true"></span>Técnico em estética automotiva</li>
+            <li><span class="marco-q" aria-hidden="true"></span>Polimento técnico e correção de pintura</li>
+            <li><span class="marco-q" aria-hidden="true"></span>Micropintura</li>
+            <li><span class="marco-q" aria-hidden="true"></span>Instalação de PPF</li>
+            <li><span class="marco-q" aria-hidden="true"></span>Hoje ensina personalização de pinças</li>
+          </ol>
+        </div>
+        <a class="btn btn-zap" href="https://wa.me/5543998134460?text=Oi%2C%20Junior!%20Quero%20saber%20da%20pr%C3%B3xima%20turma%20do%20curso%20de%20personaliza%C3%A7%C3%A3o%20de%20pin%C3%A7as%20de%20freio." target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg>Quero saber da próxima turma</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 · FECHAMENTO: borda vermelha com painel escuro por dentro (Kimi) e a marca gigante (Halden) -->
+  <section class="fim" id="fim" aria-labelledby="fim-t">
+    <div class="fim-painel">
+      <div class="fim-conteudo">
+        <h2 id="fim-t" data-palavras>Bora deixar o seu <em>finalizado?</em></h2>
+        <p data-sobe>Agendamento pelo WhatsApp. Atendimento em Rolândia (PR).</p>
+        <a class="btn btn-zap btn-grande" data-sobe href="https://wa.me/5543998134460?text=Oi%2C%20Junior!%20Vi%20o%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg>Chamar no WhatsApp</a>
+        <p class="fim-contato" data-sobe><a href="tel:+5543998134460">(43) 99813-4460</a><a href="https://www.instagram.com/junior_esteticaautomotiva16/" target="_blank" rel="noopener">@junior_esteticaautomotiva16</a></p>
+      </div>
+      <p class="fim-marca" id="fimMarca" aria-hidden="true">JUNIOR</p>
+      <p class="fim-legal">Junior Estética Automotiva, Rolândia (PR). Fotos do Instagram do Junior.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ILHA do celular: agendar, ou a ordem de serviço quando tem serviço marcado (Skiper dynamic island) -->
+<div class="ilha" id="ilha" data-estado="fechada">
+  <div class="ilha-folha" id="ilhaFolha" role="dialog" aria-modal="false" aria-labelledby="ilhaTit" hidden>
+    <p class="ilha-tit" id="ilhaTit">Sua ordem de serviço</p>
+    <ul class="ilha-linhas" id="ilhaLinhas"></ul>
+    <a class="btn btn-zap" id="ilhaEnviar" href="https://wa.me/5543998134460" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg>Mandar no WhatsApp</a>
+  </div>
+  <div class="ilha-pilula">
+    <a class="ilha-zap" id="ilhaZap" href="https://wa.me/5543998134460?text=Oi%2C%20Junior!%20Vi%20o%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg><span>Agendar pelo WhatsApp</span></a>
+    <button class="ilha-ordem" id="ilhaOrdem" type="button" aria-expanded="false" aria-controls="ilhaFolha" hidden><span class="ilha-conta" id="ilhaConta">0</span><span id="ilhaTxt">serviços na ordem</span><span class="ilha-seta" aria-hidden="true"></span></button>
+  </div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-zap" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.17-1.5A9.93 9.93 0 1 0 12.04 2Zm0 18.13a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.07.89.9-2.99-.2-.31a8.22 8.22 0 1 1 6.85 3.73Zm4.5-6.15c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.16.25-.63.8-.78.96-.14.17-.29.19-.53.06-.25-.12-1.04-.38-1.98-1.22a7.4 7.4 0 0 1-1.37-1.7c-.14-.25 0-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.31c-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.17 1.73 2.64 4.2 3.7.58.26 1.04.41 1.4.52.59.19 1.12.16 1.55.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.29Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#2DB24A"/><path d="m6.5 12.5 3.6 3.6 7.4-8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<script src="js/main.js?v=6" type="module"></script>
+</body>
+</html>
